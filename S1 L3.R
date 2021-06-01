@@ -1,0 +1,5 @@
+setwd("F:\\Backup\\Youtube\\Videos\\Time series analysis\\Data")
+census=read.csv("Lecture3\\DataCensus_SriLanka.csv")
+head(census)
+str(census)
+ncol(census)
