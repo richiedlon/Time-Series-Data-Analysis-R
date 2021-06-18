@@ -1,0 +1,15 @@
+library(astsa)
+
+setwd("F:\\Backup\\Youtube\\Videos\\Time series analysis")
+TempGlobal=read.csv("S2 L8 Global Temparature.csv")
+
+head(TempGlobal)
+tail(TempGlobal)
+TStempfULL=ts(TempGlobal[,2:2],c(1880,1),c(2016,12),12)
+lag.plot(TStempfULL, lags=1, do.lines=FALSE)
+x= lag(TempGlobal[,2:2],1)
+str(x)
+dataintersect=ts.intersect(TStempfULL, x, dframe=TRUE)
+head(dataintersect)
+fitlr=lm(dataintersect[,1]~dataintersect[,2])
+summary(fitlr)
